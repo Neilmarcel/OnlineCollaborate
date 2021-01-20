@@ -6,7 +6,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 public class MvcConfig extends WebMvcConfigurerAdapter{
-	
 	@Bean
 	public ViewResolver configureViewResolver() {
 		InternalResourceViewResolver viewResolver=new InternalResourceViewResolver();

@@ -2,11 +2,19 @@ package com.coll.OnlineCollaborate.daoImpl;
 
 import java.util.List;
 
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.coll.OnlineCollaborate.dao.IUserDao;
-import com.coll.OnlineCollaboration.model.User;
+import com.coll.OnlineCollaborate.model.User;
 
+@Repository("userDao")
+@Transactional
 public class UserDaoImpl implements IUserDao{
-
+	@Autowired
+	SessionFactory sessionFactory;
 	@Override
 	public List<User> userListbyStatus(String status) {
 		// TODO Auto-generated method stub
@@ -15,20 +23,19 @@ public class UserDaoImpl implements IUserDao{
 
 	@Override
 	public List<User> getAllUsers() {
-		// TODO Auto-generated method stub
-		return sessionFactory.getCurrentSession().createQuery("from User",User.class).getResultLi;
+		return sessionFactory.getCurrentSession().createQuery("from User",User.class).getResultList();
 	}
 
 	@Override
-	public User getUserById(int Userid) {
+	public User getUserById(int userid) {
 		// TODO Auto-generated method stub
-		return null;
+		return sessionFactory.getCurrentSession().get(User.class, Integer.valueOf(userid));
 	}
 
 	@Override
-	public User getUserByUsername(String UserName) {
-		// TODO Auto-generated method stub
-		return null;
+	public User getUserByUsername(String username) {
+		String query="from User where username=:username";
+		return sessionFactory.getCurrentSession().createQuery(query,User.class).setParameter("username", username).getSingleResult();
 	}
 
 	@Override
@@ -39,24 +46,48 @@ public class UserDaoImpl implements IUserDao{
 
 	@Override
 	public boolean addUser(User user) {
-		// TODO Auto-generated method stub
-		return false;
+		try {
+			sessionFactory.getCurrentSession().save(user);
+			return true;
+		}
+		catch(Exception ex) {
+			ex.printStackTrace();
+			return false;
+		}
 	}
 
 	@Override
 	public boolean updateUser(User user) {
-		// TODO Auto-generated method stub
-		return false;
+		try {
+			sessionFactory.getCurrentSession().update(user);
+			return true;
+		}
+		catch(Exception ex) {
+			ex.printStackTrace();
+			return false;
+		}
 	}
 
 	@Override
 	public boolean deleteUser(int userId) {
+		try {
+			sessionFactory.getCurrentSession().delete(getUserById(userId));
+			return true;
+		}
+		catch(Exception ex) {
+			ex.printStackTrace();
+			return false;
+		}
+	}
+
+	@Override
+	public boolean deactiveUser(int userId) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean deactiveUser(int userId) {
+	public boolean updateUserProfile(String file, Integer userId) {
 		// TODO Auto-generated method stub
 		return false;
 	}

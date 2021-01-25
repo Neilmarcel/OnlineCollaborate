@@ -3,6 +3,7 @@ package com.coll.OnlineCollaborate.daoImpl;
 import java.util.List;
 
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,8 +18,9 @@ public class UserDaoImpl implements IUserDao{
 	SessionFactory sessionFactory;
 	@Override
 	public List<User> userListbyStatus(String status) {
-		// TODO Auto-generated method stub
-		return null;
+		String q="from User where status='"+status+"'";
+		Query query=sessionFactory.getCurrentSession().createQuery(q);
+		return query.getResultList();
 	}
 
 	@Override
@@ -40,8 +42,18 @@ public class UserDaoImpl implements IUserDao{
 
 	@Override
 	public User validateUser(User user) {
-		// TODO Auto-generated method stub
-		return null;
+		String username=user.getUsername();
+		String password=user.getPassword();
+		String q="from User where username'"+username+"' and password='"+password+"'";
+		Query query=sessionFactory.getCurrentSession().createQuery(q);
+		try {
+			user=(User)query.getSingleResult();
+			return user;
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	@Override
@@ -82,14 +94,32 @@ public class UserDaoImpl implements IUserDao{
 
 	@Override
 	public boolean deactiveUser(int userId) {
-		// TODO Auto-generated method stub
-		return false;
+		try {
+			User user=getUserById(userId);
+			user.setEnabled(false);
+			sessionFactory.getCurrentSession().update(user);
+			return true;
+		}
+		catch(Exception ex) {
+			ex.printStackTrace();
+			return false;
+		}
 	}
 
 	@Override
 	public boolean updateUserProfile(String file, Integer userId) {
-		// TODO Auto-generated method stub
-		return false;
+		String q="update User set profile=:filename where userId=:id";
+		Query query=sessionFactory.getCurrentSession().createQuery(q);
+		query.setParameter("id", (Integer)userId);
+		query.setParameter("fileName", file);
+		try {
+			query.executeUpdate();
+			return true;
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 }

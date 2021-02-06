@@ -1,12 +1,14 @@
-package com.coll.OnlineCollaborate.dao;
+package com.coll.OnlineCollaborate.service;
 
 import java.util.List;
 
 import com.coll.OnlineCollaborate.model.BlogComments;
 
-public interface IBlogComments {
+public interface IBlogCommentsService {
+	
 	List<BlogComments> getAllBlogComments();
 	BlogComments getBlogCommentsById(int blogCommentId);
 	boolean addBlogComments(BlogComments blogComments);
 	boolean updateBlogComments(BlogComments blogComments);
+	boolean deleteBlogComments(BlogComments blogComments);
 }

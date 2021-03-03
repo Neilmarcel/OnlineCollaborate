@@ -44,7 +44,7 @@ public class UserDaoImpl implements IUserDao{
 	public User validateUser(User user) {
 		String username=user.getUsername();
 		String password=user.getPassword();
-		String q="from User where username'"+username+"' and password='"+password+"'";
+		String q="from User where username'"+username+"' and password='"+password+"' and enabled='true'";
 		Query query=sessionFactory.getCurrentSession().createQuery(q);
 		try {
 			user=(User)query.getSingleResult();

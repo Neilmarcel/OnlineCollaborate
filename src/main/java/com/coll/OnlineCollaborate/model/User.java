@@ -17,8 +17,6 @@ public class User extends DomainResponse implements Serializable {
 	private String lastName;
 	private String username;
 	private String password;
-	@Transient
-	private String confirmPassword;
 	private String email;
 	private String role;
 	private String status;
@@ -55,12 +53,6 @@ public class User extends DomainResponse implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getConfirmPassword() {
-		return confirmPassword;
-	}
-	public void setConfirmPassword(String confirmPassword) {
-		this.confirmPassword = confirmPassword;
-	}
 	public String getEmail() {
 		return email;
 	}
@@ -79,13 +71,13 @@ public class User extends DomainResponse implements Serializable {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public boolean isOnline() {
+	public boolean getIsOnline() {
 		return isOnline;
 	}
 	public void setOnline(boolean isOnline) {
 		this.isOnline = isOnline;
 	}
-	public boolean isEnabled() {
+	public boolean getEnabled() {
 		return enabled;
 	}
 	public void setEnabled(boolean enabled) {

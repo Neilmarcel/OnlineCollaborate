@@ -76,4 +76,16 @@ public class UserServiceImpl implements IUserService{
 		// TODO Auto-generated method stub
 		return userDao.updateUserProfile(file, userId);
 	}
+
+	@Override
+	public boolean activeUser(int userId) {
+		// TODO Auto-generated method stub
+		return userDao.activeUser(userId);
+	}
+
+	@Override
+	public List<User> getAllDeactiveUser() {
+		// TODO Auto-generated method stub
+		return userDao.getAllDeactiveUser();
+	}
 }

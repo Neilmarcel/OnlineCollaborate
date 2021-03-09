@@ -29,9 +29,9 @@ public class UserDaoImpl implements IUserDao{
 	}
 
 	@Override
-	public User getUserById(int userid) {
+	public User getUserById(int userId) {
 		// TODO Auto-generated method stub
-		return sessionFactory.getCurrentSession().get(User.class, Integer.valueOf(userid));
+		return sessionFactory.getCurrentSession().get(User.class, Integer.valueOf(userId));
 	}
 
 	@Override

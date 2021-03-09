@@ -1,6 +1,6 @@
 import { Component, NgModule, OnInit } from '@angular/core';
-import { UserService } from '../../../../OnlineCollaborateAngular/src/app/user.service';  
-import { User } from '../../../../OnlineCollaborateAngular/src/app/user';  
+import { UserService } from '../user.service';  
+import { User } from '../user';  
 import { Observable,Subject } from "rxjs";  
 import { Validators, FormControl, FormGroup, FormBuilder} from '@angular/forms';
 import { DataTablesModule } from 'angular-datatables';

@@ -7,10 +7,10 @@
                       <label for="firstName">First Name</label>
                       <input type="text" class="form-control" formControlName="firstName" data-toggle="tooltip"
                           data-placement="right" titel="Enter First Name" placeholder="Enter Your First Name">
-                      <div class="alert alert-danger" **ngIf="(FirstName.touched) && (FirstName.invalid)"
+                      <div class="alert alert-danger" *ngIf="(FirstName.touched) && (FirstName.invalid)"
                           style="margin-top: 5px;">
-                          <span **ngIf="FirstName.errors.required">First Name is Required</span>
-                          <span **ngIf="FirstName.errors.minlength">MinLength Error</span>
+                          <span *ngIf="FirstName.errors.required">First Name is Required</span>
+                          <span *ngIf="FirstName.errors.minlength">MinLength Error</span>
                       </div>
                   </div>
 
@@ -18,10 +18,10 @@
                       <label for="lastName">Last Name</label>
                       <input type="text" class="form-control" formControlName="lastName" data-toggle="tooltip"
                           data-placement="right" titel="Enter Last Name" placeholder="Enter Your Last Name">
-                      <div class="alert alert-danger" **ngIf="(LastName.touched) && (LastName.invalid)"
+                      <div class="alert alert-danger" *ngIf="(LastName.touched) && (LastName.invalid)"
                           style="margin-top: 5px;">
-                          <span **ngIf="LastName.errors.required">Last Name is Required</span>
-                          <span **ngIf="LastName.errors.minlength">MinLength Error</span>
+                          <span *ngIf="LastName.errors.required">Last Name is Required</span>
+                          <span *ngIf="LastName.errors.minlength">MinLength Error</span>
                       </div>
                   </div>
 
@@ -29,10 +29,10 @@
                       <label for="username">UserName</label>
                       <input type="text" class="form-control" formControlName="username" data-toggle="tooltip"
                           data-placement="right" titel="Enter Username" placeholder="Enter Your User Name">
-                      <div class="alert alert-danger" **ngIf="(Username.touched) && (Username.invalid)"
+                      <div class="alert alert-danger" *ngIf="(Username.touched) && (Username.invalid)"
                           style="margin-top: 5px;">
-                          <span **ngIf="UserName.errors.required">Username is Required</span>
-                          <span **ngIf="USerName.errors.minlength">MinLength Error</span>
+                          <span *ngIf="UserName.errors.required">Username is Required</span>
+                          <span *ngIf="USerName.errors.minlength">MinLength Error</span>
                       </div>
                   </div>
 
@@ -40,10 +40,10 @@
                       <label for="password">Password</label>
                       <input type="password" class="form-control" formControlName="password" data-toggle="tooltip"
                           data-placement="right" titel="Enter Password" placeholder="Enter Your Password">
-                      <div class="alert alert-danger" **ngIf="(Password.touched) && (Password.invalid)"
+                      <div class="alert alert-danger" *ngIf="(Password.touched) && (Password.invalid)"
                           style="margin-top: 5px;">
-                          <span **ngIf="Password.errors.required">Password is Required</span>
-                          <span **ngIf="Password.errors.minlength">MinLength Error</span>
+                          <span *ngIf="Password.errors.required">Password is Required</span>
+                          <span *ngIf="Password.errors.minlength">MinLength Error</span>
                       </div>
                   </div>
 
@@ -52,12 +52,12 @@
                       <input type="password" class="form-control" formControlName="confirm_password"
                           data-toggle="tooltip" data-placement="right" titel="Enter Confirm Password"
                           placeholder="Enter Your Confirm Password">
-                      <div class="alert alert-danger" **ngIf="(ConfirmPassword.touched) && (ConfirmPassword.invalid)"
+                      <div class="alert alert-danger" *ngIf="(ConfirmPassword.touched) && (ConfirmPassword.invalid)"
                           style="margin-top: 5px;">
-                          <span **ngIf="ConfirmPassword.errors.required">Confirm Password is Required</span>
-                          <span **ngIf="ConfirmPassword.errors.pattern">Password and Confirm Password does not
-                              mathc</span>
-                          <span **ngIf="Password.errors.minlength">MinLength Error</span>
+                          <span *ngIf="ConfirmPassword.errors.required">Confirm Password is Required</span>
+                          <span *ngIf="ConfirmPassword.errors.pattern">Password and Confirm Password does not
+                              match</span>
+                          <span *ngIf="Password.errors.minlength">MinLength Error</span>
                       </div>
                   </div>
 
@@ -65,10 +65,10 @@
                       <label for="email">E-Mail</label>
                       <input type="text" class="form-control" formControlName="email" data-toggle="tooltip"
                           data-placement="right" titel="Enter Email Id" placeholder="Enter Your E-Mail Address">
-                      <div class="alert alert-danger" **ngIf="(Email.touched) && (Email.invalid)"
+                      <div class="alert alert-danger" *ngIf="(Email.touched) && (Email.invalid)"
                           style="margin-top: 5px;">
-                          <span **ngIf="Email.errors.required">Email is Required</span>
-                          <span **ngIf="Email.errors.email">Invalid Email Format</span>
+                          <span *ngIf="Email.errors.required">Email is Required</span>
+                          <span *ngIf="Email.errors.email">Invalid Email Format</span>
                       </div>
                   </div>
 
@@ -83,7 +83,6 @@
                   </div>
 
                   <button input="submitted" type="submit" class="btn btn-success">Submit</button>
-
               </form>
           </div>
       </div>

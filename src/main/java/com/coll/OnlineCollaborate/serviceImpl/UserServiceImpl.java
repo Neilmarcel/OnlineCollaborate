@@ -88,4 +88,9 @@ public class UserServiceImpl implements IUserService{
 		// TODO Auto-generated method stub
 		return userDao.getAllDeactiveUser();
 	}
+
+	@Override
+	public boolean logoutUser(int userId) {
+		return userDao.logoutUser(userId);
+	}
 }

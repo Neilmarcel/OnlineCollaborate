@@ -8,14 +8,16 @@ import { RegisterUserComponent } from '../../../OnlineCollaborateAngular/src/app
 import { UserListComponent } from '../../../OnlineCollaborateAngular/src/app/user-list/user-list.component';
 import { LoginUserComponent } from './login-user/login-user.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http'; 
+import { HttpClientModule } from '@angular/common/http';
+import { ActiveUserComponent } from './active-user/active-user.component'; 
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterUserComponent,
     UserListComponent,
-    LoginUserComponent
+    LoginUserComponent,
+    ActiveUserComponent
   ],
   imports: [
     BrowserModule,

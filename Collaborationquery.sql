@@ -9,13 +9,13 @@ Password varchar(20),
 Email varchar(40),
 Role varchar(5),
 Status varchar(10),
-IsOnline varchar(5),
-Enabled varchar(5),
+IsOnline boolean,
+Enabled boolean,
 primary key(UserId)
 );
 drop table User;
 insert into User(FirstName, lastName, UserName, Password, email, Role, Status, Isonline, Enabled) 
-values('Neil','Jerry','nmj','nmj@123','neilmarceljerry@gmail.com','Admin','Active',"true","true");
+values('Neil','Jerry','nmj','nmj@123','neilmarceljerry@gmail.com','Admin','Active',true,true);
 Select * from User;
 CREATE TABLE Blog (
     BlogId INT NOT NULL AUTO_INCREMENT,

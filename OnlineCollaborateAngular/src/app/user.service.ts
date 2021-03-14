@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
+  
   private baseUrl = 'http://localhost:8080/api/';  
   constructor(private http:HttpClient) { }  
   
@@ -28,5 +29,13 @@ export class UserService {
   updateUser(userId: number, value: any): Observable<Object> {  
     return this.http.post(`${this.baseUrl}/update-user/${userId}`, value);  
   }  
-
+  deactiveList() {
+    return this.http.get(`${this.baseUrl}`+'deactive-list');
+  }
+  activeUser(userId: number): Observable<Object> {  
+    return this.http.post(`${this.baseUrl}/active-user/${userId}`, {responseType: 'text'});  
+  }
+  checkUser(user: object): Observable<any> {
+    return this.http.post(`${this.baseUrl}`+"validate-user", user);
+  }
 }

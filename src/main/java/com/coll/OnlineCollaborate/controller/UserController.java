@@ -26,6 +26,7 @@ public class UserController {
 	public boolean saveUser(@RequestBody User user) {
 		return userService.addUser(user);
 	}
+	
 	@GetMapping("user-list")
 	public List<User> allUsers(){
 		return userService.getAllUsers();
@@ -42,17 +43,27 @@ public class UserController {
 	}
 	
 	@PostMapping("update-user/{userId}")
-	public boolean updateUser(@RequestBody User user,@PathVariable("userId") int userId) {
-		user.setUserId(userId);
-		return userService.updateUser(user);
+	public boolean updateUser(@RequestBody User user,@PathVariable("userId")int userId) {
+	return userService.updateUser(user);
 	}
 	
 	@GetMapping("deactive-list")
 	public List<User> AllDeactiveUser(){
 		return userService.getAllDeactiveUser();
 	}
+
 	@PostMapping("active-user/{userId}")
-	public boolean activeUser(@RequestBody User user,@PathVariable("userId") int userId) {
+	public boolean activeUser(@RequestBody User user, @PathVariable("userId") int userId) {
 		return userService.activeUser(userId);
+	}
+	
+	@PostMapping("validate-user")
+	public User validateUser(@RequestBody User user) {
+		return userService.validateUser(user);
+	}
+   
+	@PostMapping("logout-user/{userId}")
+	public boolean logoutUser(@RequestBody User user, @PathVariable("userId") int userId) {
+		return userService.logoutUser(userId);
 	}
 }
